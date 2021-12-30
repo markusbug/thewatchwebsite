@@ -30,7 +30,7 @@ const providerOptions = {
     walletlink: {
         package: WalletLink, // required
         options: {
-            appName: "DEMU", // required
+            appName: "WatchNFT", // required
             appLogoUrl: "https://bafybeic77wgionxvk5nvq27edguig643h4a2ec7d6l2plhncyvbdkwuj6q.ipfs.infura-ipfs.io", // optional - favicon is used if unspecified
             darkMode: false, // optional - false if unspecified
             // walletLinkUrl: "SERVER_URL", // optional - WalletLink server URL; for most, leave it unspecified
