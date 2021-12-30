@@ -49,7 +49,7 @@ export default function Home() {
         Welcome to the watch NFT, mint here for free:
       </h1>
       <div style={{
-        maxWidth: "30%",
+        maxWidth: "50%",
         textAlign: "center",
         margin: "auto",
       }}>
