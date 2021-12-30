@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Web3 from 'web3';
-import { web3Modal } from './getProvider'
+import { web3Modal } from '../wallet_com/getProvider'
 import Button from '@mui/material/Button';
 import TimezoneSelect from "react-timezone-select"
 import React, { useState } from "react"
