@@ -64,6 +64,7 @@ export default function Home() {
             marginTop: "30px",
             padding: "20px",
           }}>
+            <h2>Change your watches timezone:</h2>
             <TimezoneSelect
               value={selectedTimezone}
               onChange={setSelectedTimezone}
