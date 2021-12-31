@@ -17,7 +17,7 @@ export default function Home() {
   async function mintNFT() {
     const provider = await web3Modal.connect()
     const web3 = new Web3(provider);
-    const chainID = web3.eth.net.getId();
+    const chainID = await web3.eth.net.getId();
     if (chainID === 137) {
       const returnValue = await web3.eth.getAccounts();
       const account = returnValue[0];
@@ -31,7 +31,7 @@ export default function Home() {
   async function changeTimezone() {
     const provider = await web3Modal.connect()
     const web3 = new Web3(provider);
-    const chainID = web3.eth.net.getId();
+    const chainID = await web3.eth.net.getId();
     if (chainID === 137) {
       const returnValue = await web3.eth.getAccounts();
       const account = returnValue[0];
