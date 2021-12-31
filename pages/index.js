@@ -17,21 +17,31 @@ export default function Home() {
   async function mintNFT() {
     const provider = await web3Modal.connect()
     const web3 = new Web3(provider);
-    const returnValue = await web3.eth.getAccounts();
-    const account = returnValue[0];
-    const WatchInstance = new web3.eth.Contract(watchABI, "0xaC79D9B0A6C6d08ca6355DF7C6cB5D2609cE8450");
-    await WatchInstance.methods.publicMint().send({ from: account });
+    const chainID = web3.eth.net.getId();
+    if (chainID === 137) {
+      const returnValue = await web3.eth.getAccounts();
+      const account = returnValue[0];
+      const WatchInstance = new web3.eth.Contract(watchABI, "0xaC79D9B0A6C6d08ca6355DF7C6cB5D2609cE8450");
+      await WatchInstance.methods.publicMint().send({ from: account });
+    } else {
+      alert("Please switch to the Polygon Mainnet")
+    }
   }
 
   async function changeTimezone() {
     const provider = await web3Modal.connect()
     const web3 = new Web3(provider);
-    const returnValue = await web3.eth.getAccounts();
-    const account = returnValue[0];
-    const WatchInstance = new web3.eth.Contract(watchABI, "0xaC79D9B0A6C6d08ca6355DF7C6cB5D2609cE8450");
-    const tokenID = parseInt(prompt("Which token would you like to change the timezone of? Input your TokenID"));
-    if (tokenID) {
-      await WatchInstance.methods.setTimezone(selectedTimezone.offset, tokenID).send({ from: account });
+    const chainID = web3.eth.net.getId();
+    if (chainID === 137) {
+      const returnValue = await web3.eth.getAccounts();
+      const account = returnValue[0];
+      const WatchInstance = new web3.eth.Contract(watchABI, "0xaC79D9B0A6C6d08ca6355DF7C6cB5D2609cE8450");
+      const tokenID = parseInt(prompt("Which watch would you like to change the timezone of? Input your watch ID here."));
+      if (tokenID) {
+        await WatchInstance.methods.setTimezone(selectedTimezone.offset, tokenID).send({ from: account });
+      }
+    } else {
+      alert("Please switch to the Polygon Mainnet")
     }
   }
 
